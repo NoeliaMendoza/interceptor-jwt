@@ -1,0 +1,80 @@
+<main class="contenedor">
+  <header>
+    <h1>Interceptor JWT en Angular</h1>
+    <p class="introduccion">
+      El servidor firma el JWT y valida cada solicitud protegida.
+    </p>
+  </header>
+
+  <section class="panel">
+    <h2>1. Iniciar sesión</h2>
+    <div class="credenciales">
+      <label>
+        Usuario
+        <input name="usuario" [(ngModel)]="usuario" autocomplete="username" />
+      </label>
+      <label>
+        Contraseña
+        <input
+          name="contrasena"
+          type="password"
+          [(ngModel)]="contrasena"
+          autocomplete="current-password"
+        />
+      </label>
+    </div>
+    <p class="ayuda">Cuenta educativa: estudiante / demo1234</p>
+    <div class="botones">
+      <button type="button" (click)="obtenerJwt()" [disabled]="cargando">
+        {{ cargando ? 'Autenticando...' : 'Obtener JWT firmado' }}
+      </button>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>2. Probar el endpoint protegido</h2>
+    <div class="botones">
+      <button type="button" class="secundario" (click)="enviarPeticion()">
+        Enviar petición HTTP
+      </button>
+      <button type="button" class="terciario" (click)="eliminarJwt()">
+        Cerrar sesión (eliminar JWT)
+      </button>
+    </div>
+  </section>
+
+  @if (jwt) {
+    <section class="panel resultado">
+      <h2>Token JWT</h2>
+      <p class="token">{{ jwt }}</p>
+
+      @if (datos) {
+        <h3>Payload decodificado</h3>
+        <dl class="datos">
+          <div>
+            <dt>Usuario</dt>
+            <dd>{{ datos.sub }}</dd>
+          </div>
+          <div>
+            <dt>Rol</dt>
+            <dd>{{ datos.rol }}</dd>
+          </div>
+          <div>
+            <dt>Emitido</dt>
+            <dd>{{ datos.iat * 1000 | date: 'medium' }}</dd>
+          </div>
+          <div>
+            <dt>Expira</dt>
+            <dd>{{ datos.exp * 1000 | date: 'medium' }}</dd>
+          </div>
+        </dl>
+      }
+    </section>
+  }
+
+  <section class="panel resultado" aria-live="polite">
+    <h2>Respuesta HTTP</h2>
+    <p>{{ mensaje }}</p>
+  </section>
+
+</main>

@@ -1,0 +1,199 @@
+:host {
+  display: block;
+  min-height: 100vh;
+}
+
+.contenedor {
+  width: min(760px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 3rem 0;
+}
+
+header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.etiqueta {
+  margin: 0 0 0.5rem;
+  color: #1976d2;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0;
+  color: #153450;
+  font-size: clamp(2rem, 6vw, 3rem);
+}
+
+.introduccion {
+  color: #536779;
+}
+
+.credenciales {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 1rem;
+}
+
+.credenciales label {
+  display: grid;
+  gap: 0.4rem;
+  color: #536779;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.credenciales input {
+  min-height: 42px;
+  padding: 0 0.7rem;
+  border: 1px solid #cbd8e3;
+  border-radius: 6px;
+  color: #203548;
+  font: inherit;
+}
+
+.credenciales input:focus-visible {
+  outline: 3px solid #90caf9;
+  outline-offset: 1px;
+}
+
+.ayuda {
+  margin-bottom: 1.25rem;
+  color: #536779;
+  font-size: 0.9rem;
+}
+
+.panel {
+  margin-top: 1.25rem;
+  padding: 1.5rem;
+  border: 1px solid #dce6ef;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgb(21 52 80 / 6%);
+}
+
+.panel h2 {
+  margin-top: 0;
+}
+
+.botones {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+button {
+  min-height: 44px;
+  padding: 0.75rem 1rem;
+  border: 0;
+  border-radius: 7px;
+  background: #1976d2;
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 600;
+}
+
+button:hover {
+  background: #125aa0;
+}
+
+button:focus-visible {
+  outline: 3px solid #90caf9;
+  outline-offset: 2px;
+}
+
+button:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+button.secundario {
+  background: #26734d;
+}
+
+button.secundario:hover {
+  background: #1c5b3b;
+}
+
+button.terciario {
+  background: #596b7a;
+}
+
+button.terciario:hover {
+  background: #40515f;
+}
+
+.token {
+  overflow-wrap: anywhere;
+  padding: 0.8rem;
+  border-radius: 6px;
+  background: #f1f5f9;
+  color: #475569;
+  font-family: Consolas, monospace;
+  font-size: 0.78rem;
+}
+
+.datos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.datos div {
+  padding: 0.8rem;
+  border-radius: 7px;
+  background: #f1f5f9;
+}
+
+.datos dt {
+  color: #536779;
+  font-size: 0.85rem;
+}
+
+.datos dd {
+  margin: 0.25rem 0 0;
+  font-weight: 600;
+}
+
+.aviso {
+  margin-top: 1.25rem;
+  padding: 1rem 1.25rem;
+  border-left: 4px solid #e0a526;
+  border-radius: 5px;
+  background: #fff8e5;
+  color: #5d4b1c;
+  line-height: 1.6;
+}
+
+.instruccion {
+  color: #536779;
+  text-align: center;
+}
+
+kbd {
+  padding: 0.15rem 0.35rem;
+  border: 1px solid #cad5df;
+  border-radius: 4px;
+  background: #fff;
+}
+
+@media (max-width: 520px) {
+  .contenedor {
+    padding: 2rem 0;
+  }
+
+  .panel {
+    padding: 1.1rem;
+  }
+
+  .botones {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}
